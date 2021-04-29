@@ -1,8 +1,10 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class DealDamage : MonoBehaviour {
-	public float damage = 10f;
+    //public float damage = 10f;
+    
 
 	private Fighter fighter;
 
@@ -13,6 +15,11 @@ public class DealDamage : MonoBehaviour {
 	public void Fire () {
 		if (fighter.target == null) { return; }
 
-		fighter.target.TakeDamage(damage);
+        System.Random rnd = new System.Random();
+        int number = rnd.Next(0, 11);
+
+        float damage = Convert.ToSingle(number);
+
+        fighter.target.TakeDamage(damage);
 	}
 }
