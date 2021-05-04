@@ -10,6 +10,7 @@ public class Fighter : MonoBehaviour {
 	}
 	public Fighter target;
 	public GameObject takeDamageEffect;
+    public GameObject GameOver;
 	
 	public Fist leftFist;
 	public Fist rightFist;
@@ -18,9 +19,11 @@ public class Fighter : MonoBehaviour {
 		get;
 		private set;
 	}
-
+    public GameObject gameOver;
 	void Awake () {
 		health = maxHealth;
+        //gameOver = GameObject.Find("Text");
+        gameOver.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -30,7 +33,9 @@ public class Fighter : MonoBehaviour {
 	
 	public void Die () {
 		isDead = true;
-		health = 0f;
+        health = 0f;
+        gameOver.SetActive(true);
+
 	}
 
 	public bool IsBlocking(Fist.FistSide fistSide) {
@@ -52,6 +57,7 @@ public class Fighter : MonoBehaviour {
 
 		if (health <= 0f) {
 			Die();
+
 		}
 	}
 
