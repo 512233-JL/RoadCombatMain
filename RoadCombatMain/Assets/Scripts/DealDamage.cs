@@ -16,7 +16,7 @@ public class DealDamage : MonoBehaviour {
 		if (fighter.target == null) { return; }
 
         System.Random rnd = new System.Random();
-        int number = rnd.Next(0, 41);
+        int number = rnd.Next(3,12);
 
         float damage = Convert.ToSingle(number);
 

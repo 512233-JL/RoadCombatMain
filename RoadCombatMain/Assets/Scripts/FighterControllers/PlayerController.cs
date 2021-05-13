@@ -4,9 +4,11 @@ using System.Collections;
 public class PlayerController : FighterController {
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey("'")) {
+        if (!Fighter.doMovement)
+            return;
+		if (Input.GetKey("f")) {
 			rightControlState = ControlState.Punch;
-		} else if (Input.GetKey("/")) {
+		} else if (Input.GetKey("c")) {
 			rightControlState = ControlState.Block;
 		} else {
 			rightControlState = ControlState.Idle;

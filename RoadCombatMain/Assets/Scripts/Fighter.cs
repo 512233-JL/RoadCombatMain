@@ -2,7 +2,10 @@
 using System.Collections;
 
 public class Fighter : MonoBehaviour {
-	public string displayName;
+    public static bool doMovement = true;
+    public GameObject enemy;
+
+    public string displayName;
 	public float maxHealth = 100f;
 	public float health {
 		get;
@@ -20,7 +23,12 @@ public class Fighter : MonoBehaviour {
 		private set;
 	}
     public GameObject gameOver;
-	void Awake () {
+
+    void Start()
+    {
+        enemy = GameObject.Find("RandomIntervalOpponent");
+    }
+    void Awake () {
 		health = maxHealth;
         //gameOver = GameObject.Find("Text");
         gameOver.SetActive(false);
@@ -35,7 +43,8 @@ public class Fighter : MonoBehaviour {
 		isDead = true;
         health = 0f;
         gameOver.SetActive(true);
-
+        doMovement = !doMovement;
+        enemy.SetActive(false);
 	}
 
 	public bool IsBlocking(Fist.FistSide fistSide) {
