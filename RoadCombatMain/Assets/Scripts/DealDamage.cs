@@ -21,5 +21,7 @@ public class DealDamage : MonoBehaviour {
         float damage = Convert.ToSingle(number);
 
         fighter.target.TakeDamage(damage);
+
+		FindObjectOfType<AudioManager>().Play("Jab");
 	}
 }
