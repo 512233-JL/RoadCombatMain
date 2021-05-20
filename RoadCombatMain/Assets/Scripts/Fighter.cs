@@ -49,6 +49,7 @@ public class Fighter : MonoBehaviour {
 
 	public bool IsBlocking(Fist.FistSide fistSide) {
 		return GetFist(fistSide).GetControlState() == FighterController.ControlState.Block;
+
 	}
 
 	public void Respawn () {
