@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class PlayerController : FighterController {
 	// Update is called once per frame
 	void Update () {
@@ -8,17 +9,22 @@ public class PlayerController : FighterController {
             return;
 		if (Input.GetKey("f")) {
 			rightControlState = ControlState.Punch;
-		} else if (Input.GetKey("c")) {
+		}
+        else if (Input.GetKey("c")) {
 			rightControlState = ControlState.Block;
-		} else {
+		}
+        else {
 			rightControlState = ControlState.Idle;
 		}
 
 		if (Input.GetKey("a")) {
 			leftControlState = ControlState.Punch;
-		} else if (Input.GetKey("z")) {
+     
+		}
+        else if (Input.GetKey("z")) {
 			leftControlState = ControlState.Block;
-		} else {
+		}
+        else {
 			leftControlState = ControlState.Idle;
 		}
 	}

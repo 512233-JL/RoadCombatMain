@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Rendering.PostProcessing;
+
 
 public class Fighter : MonoBehaviour {
     public static bool doMovement = true;
@@ -17,8 +19,9 @@ public class Fighter : MonoBehaviour {
 	
 	public Fist leftFist;
 	public Fist rightFist;
+    
 
-	public bool isDead {
+    public bool isDead {
 		get;
 		private set;
 	}
@@ -49,6 +52,7 @@ public class Fighter : MonoBehaviour {
 
 	public bool IsBlocking(Fist.FistSide fistSide) {
 		return GetFist(fistSide).GetControlState() == FighterController.ControlState.Block;
+
 	}
 
 	public void Respawn () {
@@ -64,7 +68,11 @@ public class Fighter : MonoBehaviour {
 
 		health -= damage;
 
-		if (health <= 0f) {
+        
+        
+        
+
+        if (health <= 0f) {
 			Die();
 
 		}
